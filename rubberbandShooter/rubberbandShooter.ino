@@ -16,11 +16,15 @@ void loop() {
   Serial.println(value);
   delay(100);
 
-  if(value => limit){
+  if(value >= limit){
+    shoot();
+  }
+}
+
+void shoot(){
     digitalWrite(9, LOW); //Disengage brake
     analogWrite(3, 255);  //Spin motor at full speed
-    delay(500);           //Wait 0.5 sec
+    delay(3000);           //Wait 0.5 sec
     digitalWrite(9, HIGH); //Engage brake
     analogWrite(3, 0);  //Set motor speed to 0
-  }
 }
